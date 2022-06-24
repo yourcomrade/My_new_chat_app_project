@@ -1,0 +1,42 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="ChatbubbleItemContainerStyle" TargetType="ListViewItem">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="Crimson"></Setter>
+            </Trigger>
+        </Style.Triggers>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Background" Value="Gray"/>
+        <Setter Property="BorderBrush" Value="Indigo"/>
+    </Style>
+    <DataTemplate x:Key="ChatBubbleTemplate">
+        <Border CornerRadius="2" Margin="3">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Ellipse Width="40" Height="40">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding Path=AvatarSource,Mode=TwoWay,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource UriToImage}}" Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Username}"/>
+                        <Label Content="{Binding Date_time}" />
+                        <TextBlock Text="{Binding Lastest_message}" TextWrapping="Wrap"/>
+                    </StackPanel>
+                    
+                </Grid>
+                <Grid Grid.Column="2">
+                </Grid>
+            </Grid>
+        </Border>
+    </DataTemplate>
+
+</ResourceDictionary>

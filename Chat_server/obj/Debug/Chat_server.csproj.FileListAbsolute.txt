@@ -1,0 +1,7 @@
+D:\Real world interaction\Project_chat_app_and_server\Chat_server\bin\Debug\Chat_server.exe
+D:\Real world interaction\Project_chat_app_and_server\Chat_server\bin\Debug\Chat_server.pdb
+D:\Real world interaction\Project_chat_app_and_server\Chat_server\obj\Debug\Chat_server.csproj.AssemblyReference.cache
+D:\Real world interaction\Project_chat_app_and_server\Chat_server\obj\Debug\Chat_server.csproj.SuggestedBindingRedirects.cache
+D:\Real world interaction\Project_chat_app_and_server\Chat_server\obj\Debug\Chat_server.csproj.CoreCompileInputs.cache
+D:\Real world interaction\Project_chat_app_and_server\Chat_server\obj\Debug\Chat_server.exe
+D:\Real world interaction\Project_chat_app_and_server\Chat_server\obj\Debug\Chat_server.pdb
