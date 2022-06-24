@@ -1,6 +1,6 @@
 ﻿using System.Net.Sockets;
 
-namespace Chat_server.Properties
+namespace Chat_server
 {
     public class Client
     {

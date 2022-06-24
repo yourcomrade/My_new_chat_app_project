@@ -1,10 +1,13 @@
-﻿using System;
+﻿
+using System;
 using System.IO;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Win32.SafeHandles;
 
-namespace Chat_server
+namespace Project_chat_app_and_server.Connect
 {
     
     public class Packet

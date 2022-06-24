@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:Project_chat_app_and_server"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="View/ContactItem.xaml"/>
+                <ResourceDictionary Source="View/Chatbubble.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

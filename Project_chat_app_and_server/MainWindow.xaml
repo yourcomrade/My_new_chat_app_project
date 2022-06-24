@@ -4,10 +4,106 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_chat_app_and_server"
+        xmlns:viewModel="clr-namespace:Project_chat_app_and_server.ViewModel"
         mc:Ignorable="d"
         Title="Chat_app_client" Height="550" Width="825"
         ResizeMode="CanResize">
+    
+        <Window.DataContext>
+        <viewModel:MyMainViewModel></viewModel:MyMainViewModel>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Margin="5"> Enter IP Address of server</TextBlock>
+                            <TextBox Margin="5" Text="{Binding IPaddress,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                            <TextBlock Margin="5">Enter port</TextBlock>
+                            <TextBox Margin="5" Text="{Binding portnum,Mode=TwoWay}"/>
+                            <TextBlock Margin="5">Enter username</TextBlock>
+                            <TextBox Margin="5" Name="myUsername" Text="{Binding myProfile.Username,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Border Margin="30">
+                            <StackPanel Orientation="Vertical">
+                                <Button Height="20" Content="Connect" Margin="10" Command="{Binding Init_connect_to_server}" />
+                                <TextBlock Margin="0,10,0,10" Text="{Binding Register}"/>
+                                <Button Height="20" Content="Disconnect" Margin="10" Command="{Binding Disconnect}"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                    
+                </Grid>
+                
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackPanel Orientation="Vertical">
+                    <ScrollViewer VerticalScrollBarVisibility="Visible" Height="285">
+                        <ListView ItemsSource="{Binding users_list}"
+                                  Background="Transparent"
+                                  ItemContainerStyle="{StaticResource ItemContainerStyle}"
+                                  ItemTemplate="{StaticResource ViewItemTemplate}"/>
+                    </ScrollViewer>
+                    <Grid>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Avatar" Margin="5" Height="50" Width="50" Click="Button_loadImage" Name="ButtonLoadAva"/>
+                            <Label Content="{Binding myProfile.Username}" Width="Auto" Height="Auto" 
+                                  />
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+           <Grid.RowDefinitions>
+               <RowDefinition Height="480"/>
+               <RowDefinition Height="Auto"/>
+           </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Width="415">
+                <ScrollViewer VerticalScrollBarVisibility="Visible">
+                    <ListView ItemsSource="{Binding chat_bubbles}"
+                              ItemContainerStyle="{StaticResource ChatbubbleItemContainerStyle}"
+                              ItemTemplate="{StaticResource ChatBubbleTemplate}"/>
+                </ScrollViewer>
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackPanel Orientation="Horizontal">
+                    <Border Margin="3" CornerRadius="2"> 
+                        <TextBox Margin="3" Height="60" Width="300" TextWrapping="Wrap" Text="{Binding TextMessage,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                    </Border>
+                    <Border Margin="3" CornerRadius="2">
+                        <Button Width="40" Command="{Binding Send_message}">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Icon/send_icon.png" Stretch="Fill"></ImageBrush>
+                            </Button.Background>
+                        </Button>
+                    </Border>
+                    <Border Margin="3" CornerRadius="2">
+                        <Button Width="40" Click="SendFile">
+                            <Button.Background>
+                                <ImageBrush ImageSource="Icon/plus_icon.png" Stretch="Fill"></ImageBrush>
+                            </Button.Background>
+                        </Button>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Grid>
+    
+    
 </Window>
