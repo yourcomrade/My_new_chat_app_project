@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
-
+//Source https://stackoverflow.com/questions/6940880/set-image-source-to-a-uri
 namespace Project_chat_app_and_server.Connect
 {
     public class Uri_to_image:IValueConverter

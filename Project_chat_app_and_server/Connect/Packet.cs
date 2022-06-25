@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Win32.SafeHandles;
-
+//This class is to build and read packet
 namespace Project_chat_app_and_server.Connect
 {
     
@@ -58,7 +58,8 @@ namespace Project_chat_app_and_server.Connect
             string msg = Encoding.ASCII.GetString(msgBytes);
             return msg;
         }
-
+        //Source for Send file and receive file(in Vietnamese)
+        //https://tuhocict.com/thread-multi-threading-lap-trinh-da-luong/
         public async Task Send_FileAsync(string file_path, byte code)
         {
 
@@ -71,7 +72,7 @@ namespace Project_chat_app_and_server.Connect
                     byte[] file_name_len = new byte[4];
                     file_name_len = BitConverter.GetBytes(file_name.Length);
                     byte[] file_content_len = new byte[8];
-                    file_content_len = BitConverter.GetBytes(File.Open(file_path,FileMode.Open,FileAccess.ReadWrite,FileShare.ReadWrite).Length);
+                    file_content_len = BitConverter.GetBytes(File.Open(file_path,FileMode.Open,FileAccess.ReadWrite,FileShare.ReadWrite).Length);//do this to fix the error the file is being used by another process
                     byte[] file_content = new byte[1000];
                     m_ms.WriteByte(code); 
                     m_ms.Write(file_name_len, 0, 4);

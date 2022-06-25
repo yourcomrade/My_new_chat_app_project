@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Net.Sockets;
 using System.Threading.Tasks;
-
+//This class is responsible for connecting between app and server
 namespace Project_chat_app_and_server.Connect
 {
     public class myServer_connect
@@ -12,9 +12,9 @@ namespace Project_chat_app_and_server.Connect
 
 
         private TcpClient m_TcpClient;
-        public string IP_server { get; set; }
+        public string IP_server { get;  }
         public string status { get; set; }
-        public int numport { get; set; }
+        public int numport { get; }
         public Packet my_pack { get; set; }
 
         public myServer_connect(string IPaddress_server, int portnum)
@@ -22,7 +22,6 @@ namespace Project_chat_app_and_server.Connect
             IP_server = IPaddress_server;
             this.numport = portnum;
             this.m_TcpClient = new TcpClient(IPaddress_server, portnum);
-            this.IP_server = IPaddress_server;
             my_pack = new Packet(m_TcpClient.GetStream());
         }
 

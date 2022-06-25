@@ -8,7 +8,7 @@ namespace Chat_server
         public TcpClient m_tcpClient { get; set; }
         public string username { get; set; }
         public string userId { get; set; }
-        public int PBXport { get; set; }
+        
         public string lastest_mes { get; set; }
         public bool Stillhere { get; set; }
         public string avatar { get; set; }

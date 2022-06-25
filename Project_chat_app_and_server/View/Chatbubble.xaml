@@ -29,7 +29,9 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Content="{Binding Username}"/>
                         <Label Content="{Binding Date_time}" />
-                        <TextBlock Text="{Binding Lastest_message}" TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding Lastest_message}" TextWrapping="WrapWithOverflow" 
+                                   ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                                   ScrollViewer.VerticalScrollBarVisibility="Visible"/>
                     </StackPanel>
                     
                 </Grid>
